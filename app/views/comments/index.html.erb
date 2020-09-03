@@ -1,0 +1,11 @@
+<div class="container my-10 mx-auto">
+   <h1 class="text-4xl font-bold">
+   Add Comments
+   <h1>
+
+   <%= render "form" %>
+
+   <div id="feed">
+     <%= render partial: 'comment', collection: @comments %>
+   </div>
+</div>

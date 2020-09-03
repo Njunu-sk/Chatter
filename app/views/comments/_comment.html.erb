@@ -1,0 +1,17 @@
+<div class="mt-2 p-2 order rounded bg-gray-100">
+  <div class="mb-3 text-lg"><%= comment.body %></div>
+
+  <span class="opacity-50">
+    <strong><%#= comment.username %></strong>
+    <small><%= time_ago_in_words comment.created_at %> ago </small>
+  </span>
+
+  <%= link_to "#", class: "ml-2 text-sm text-blue-500 underline", 
+   data: { reflex: "click->CommentsReflex#upvote", id: comment.id } do %>
+    <%= tag.span comment.upvote , id: dom_id(comment, "upvote") %> upvote 
+  <% end %>
+  <%= link_to "#", class: "ml-2 text-sm text-blue-500 underline",
+   data: { reflex: "click->CommentsReflex#downvote", id: comment.id } do %>
+    <%= tag.span comment.downvote , id: dom_id(comment, "downvote") %> downvote
+  <% end %>
+</div>       
