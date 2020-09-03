@@ -4,6 +4,7 @@ class CreateComments < ActiveRecord::Migration[6.0]
       t.string :body
       t.integer :upvote, null: false, default: 0
       t.integer :downvote, null: false, default: 0
+      
 
       t.timestamps
     end
