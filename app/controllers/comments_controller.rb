@@ -9,15 +9,19 @@ class CommentsController < ApplicationController
     cable_ready["feed"].insert_adjacent_html(
       selector: "#feed",
       position: "afterbegin",
-      html: render_to_string(partial: "comments/comment", locals: {comment: comment})
+      html: render_to_string(partial: "songs/comment", locals: {comment: comment})
     )
     cable_ready.broadcast
-    redirect_to comments_path
+    redirect_to song_path(song_id)
   end
 
   private
   def comment_params
-    params.permit(:body)
+    params.require(:comment).permit(:body).merge(song_id: song_id)
+  end
+
+  def song_id
+    params[:song_id]
   end
 
 end
