@@ -57,3 +57,4 @@ gem "redis", "~> 4.2"
 gem "sidekiq", "~> 6.1"
 gem "cable_ready", "~> 4.3"
 gem "stimulus_reflex", "~> 3.2"
+gem 'font-awesome-sass', '~> 5.13.0'
