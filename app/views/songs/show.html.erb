@@ -1,20 +1,43 @@
 <p id="notice"><%= notice %></p>
+<div class="card p-3 mb-3">
+  <p>
+      <strong>Title:</strong>
+      <%= @song.title %>
+   </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @song.title %>
-</p>
-
-<p>
+   <div class="row">
+   <p>
      <%= image_tag @song.image, style: "width: 300px; display: block" %> 
-</p>
+   </p>
+   </div>
 
-<% if @song.audio.attached? %>
-<audio controls>
-<source src="<%= audio_url url_for(@song.audio) %>" type="audio/mpeg">
-</audio>
-<% end %>
+  <div class="row">
+    <div class="col-1">
+      <div>
+      <%= link_to "#", class: "ml-2 text-sm text-blue-500 underline", 
+        data: { reflex: "click->SongsReflex#upvote", id: @song.id } do %>
+        <%= tag.span @song.upvote , id: dom_id(@song, "upvote") %> <i class="fas fa-caret-up"></i> 
+      <% end %>
+      </div>
 
+      <div>
+      <%= link_to "#", class: "ml-2 text-sm text-blue-500 underline",
+         data: { reflex: "click->SongsReflex#downvote", id: @song.id } do %>
+         <%= tag.span @song.downvote , id: dom_id(@song, "downvote") %> <i class="fas fa-caret-down"></i>
+      <% end %>
+     </div>
+
+    </div>
+    <div class="col-11">
+    <% if @song.audio.attached? %>
+      <audio controls>
+      <source src="<%= audio_url url_for(@song.audio) %>" type="audio/mpeg">
+      </audio>
+    <% end %>
+    </div>
+  </div>
+</div>
+ 
 <p>
     <small class="text-lg font-light">Comment</small>
 </p>

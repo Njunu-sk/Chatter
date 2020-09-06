@@ -8,10 +8,10 @@
 
   <%= link_to "#", class: "ml-2 text-sm text-blue-500 underline", 
    data: { reflex: "click->CommentsReflex#upvote", id: comment.id } do %>
-    <%= tag.span comment.upvote , id: dom_id(comment, "upvote") %> upvote 
+    <%= tag.span comment.upvote , id: dom_id(comment, "upvote") %> <i class="far fa-thumbs-up"></i> 
   <% end %>
   <%= link_to "#", class: "ml-2 text-sm text-blue-500 underline",
    data: { reflex: "click->CommentsReflex#downvote", id: comment.id } do %>
-    <%= tag.span comment.downvote , id: dom_id(comment, "downvote") %> downvote
+    <%= tag.span comment.downvote , id: dom_id(comment, "downvote") %> <i class="far fa-thumbs-down"></i>
   <% end %>
 </div>       
