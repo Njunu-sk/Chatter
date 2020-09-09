@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-   comment =  Comment.create(comment_params)
+    @song = Song.find(params[:song_id])
+    comment = @song.comments.create(comment_params)
     cable_ready["feed"].insert_adjacent_html(
       selector: "#feed",
       position: "afterbegin",
@@ -18,7 +19,7 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:body).merge(song_id: song_id)
+    params.require(:comment).permit(:body).merge(song_id: song_id, user_id: current_user.id)
   end
 
   def song_id

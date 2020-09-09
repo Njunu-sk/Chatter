@@ -1,16 +1,13 @@
 <p id="notice"><%= notice %></p>
+
+  <div class="max-w-sm rounded overflow-hidden shadow-lg content-center ">
+   <%= image_tag @song.image, :class => "w-full", style: "width: 300px; display: block" %>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2"><%= @song.title %></div>
+    </div>
+  </div>
+
 <div class="card p-3 mb-3">
-  <p>
-      <strong>Title:</strong>
-      <%= @song.title %>
-   </p>
-
-   <div class="row">
-   <p>
-     <%= image_tag @song.image, style: "width: 300px; display: block" %> 
-   </p>
-   </div>
-
   <div class="row">
     <div class="col-1">
       <div>
@@ -37,7 +34,7 @@
     </div>
   </div>
 </div>
- 
+
 <p>
     <small class="text-lg font-light">Comment</small>
 </p>
