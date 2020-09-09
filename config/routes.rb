@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :songs do
     resources :comments, only: [:index, :create]
   end
