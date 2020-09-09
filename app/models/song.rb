@@ -3,4 +3,5 @@ class Song < ApplicationRecord
     has_one_attached :audio
 
     has_many :comments, dependent: :destroy
+    belongs_to :user
 end
