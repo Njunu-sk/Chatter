@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   include CableReady::Broadcaster
   def index
     @comments = Comment.order(created_at: :desc).limit(10)

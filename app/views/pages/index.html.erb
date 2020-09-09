@@ -10,7 +10,11 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                        <%= link_to 'Sign Up', " ", class: "nav-link js-scroll-trigger"%>
+                        <% if user_signed_in? %>
+                        <%= link_to 'Sign Out', destroy_user_session_path , method: :delete, class: "nav-link js-scroll-trigger"%>
+                        <% else %>
+                        <%= link_to 'Sign Up', user_session_path , class: "nav-link js-scroll-trigger"%>
+                        <% end %>
                     </ul>
                 </div>
             </div>
@@ -22,7 +26,11 @@
                 <div class="mx-auto text-center">
                     <h1 class="mx-auto my-0 text-uppercase">KULTURE MYUZIK</h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5">An online music promo application</h2>
-                    <%= link_to 'Log In', " ", class: "btn btn-primary js-scroll-trigger" %>
+                    <% if user_signed_in? %>
+                    <%= link_to 'Playlist', songs_path , class: "btn btn-primary js-scroll-trigger" %>
+                    <% else %>
+                    <%= link_to 'Log In', new_user_session_path , class: "btn btn-primary js-scroll-trigger" %>
+                    <% end %>
                 </div>
             </div>
         </header>
@@ -34,6 +42,7 @@
                         <p class="text-white-50">
                         Kulture Myuzik is a one stop shop for entertainment, one can upload, stream and comment on a song or an upload.
                         </p>
+                        
                     </div>
                 </div>
                 
@@ -51,7 +60,7 @@
                     <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">Songs</h4>
+                                    <h4 class="text-white"><%= link_to "Songs", songs_path %></h4>
                                     <p class="mb-0 text-white-50">One can upload songs to this platform so that other users can be able to view it and stream also download</p>
                                     <hr class="d-none d-lg-block mb-0 ml-0" />
                                 </div>
