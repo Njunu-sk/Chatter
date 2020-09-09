@@ -2,7 +2,7 @@
   <div class="mb-3 text-lg"><%= comment.body %></div>
 
   <span class="opacity-50">
-    <strong><%= current_user.username %></strong>
+    <strong><%= comment.user.username %></strong>
     <small><%= time_ago_in_words comment.created_at %> ago </small>
   </span>
 
