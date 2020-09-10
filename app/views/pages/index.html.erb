@@ -12,6 +12,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
                         <% if user_signed_in? %>
                         <%= link_to 'Sign Out', destroy_user_session_path , method: :delete, class: "nav-link js-scroll-trigger"%>
+                        <%= link_to 'Sign Out',  edit_user_registration_path , method: :delete, class: "nav-link js-scroll-trigger"%>
                         <% else %>
                         <%= link_to 'Sign Up', new_user_registration_path , class: "nav-link js-scroll-trigger"%>
                         <% end %>
