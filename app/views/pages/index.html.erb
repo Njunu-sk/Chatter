@@ -28,6 +28,7 @@
                     <h2 class="text-white-50 mx-auto mt-2 mb-5">An online music promo application</h2>
                     <% if user_signed_in? %>
                     <%= link_to 'Playlist', songs_path , class: "btn btn-primary js-scroll-trigger" %>
+                    <%= link_to 'Events', events_path , class: "btn btn-primary js-scroll-trigger" %>
                     <% else %>
                     <%= link_to 'Log In', new_user_session_path , class: "btn btn-primary js-scroll-trigger" %>
                     <% end %>
@@ -91,7 +92,7 @@
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Events</h4>
+                                    <h4 class="text-white"><%= link_to "Events", events_path %></h4>
                                     <p class="mb-0 text-white-50">Users of the system can create events and display them to the platform for other users to view</p>
                                     <hr class="d-none d-lg-block mb-0 mr-0" />
                                 </div>
