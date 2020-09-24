@@ -9,12 +9,11 @@
         <div class="navbar-nav ml-auto">
           <div class="float-right">
 
-            <%= link_to 'Upload Song', new_song_path , class: "btn btn-outline-primary"  %> 
+            <% if current_user %>
+               <%= link_to 'Upload Song', new_song_path , class: "btn btn-outline-primary"  %> 
 
-            <%= link_to 'Create Event', new_event_path , class: "btn btn-outline-primary" %> 
-
-            
-      
+               <%= link_to 'Create Event', new_event_path , class: "btn btn-outline-primary" %> 
+            <% end %>
           </div>
         </div>
       </div>
