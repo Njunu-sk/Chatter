@@ -8,6 +8,16 @@ class SongsController < ApplicationController
     @songs = Song.all
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to(root_path, alert: "Empty field!") and return
+    else
+      @parameter = params[:search]
+      @songs = Song.all.where("title LIKE :search", search: @parameter)
+    end
+    
+  end
+
   # GET /songs/1
   # GET /songs/1.json
   def show
