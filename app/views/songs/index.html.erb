@@ -6,7 +6,9 @@
  <% @songs.each do |song|%>
   <div class="card">
   <% if song.image.attached? %>
-    <%= image_tag song.image, class: "card-img-top" %> 
+    <%= link_to  song do %>
+      <%= image_tag song.image, class: "card-img-top" %>
+    <% end %>
   <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= song.title %><h5>

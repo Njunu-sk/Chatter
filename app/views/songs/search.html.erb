@@ -1,0 +1,11 @@
+<h1>Search Results</h1>
+
+<% @songs.each do |song| %>
+  <div class="card">
+  <% if song.image.attached? %>
+    <%= link_to  song do %>
+      <%= image_tag song.image, class: "card-img-top" %>
+    <% end %>
+  <% end %>
+  </div>
+<% end %>
