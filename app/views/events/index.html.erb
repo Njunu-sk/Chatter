@@ -6,7 +6,7 @@
   <% @events.each do |event| %>
   <div class="card-body">
   <h5 class="card-title"><%= event.name %></h5>
-    <p class="card-text"><%= event.description %></p>
+    <small class="card-text"><%= event.description %></small>
     <div class="card-footer">
       <%= link_to 'Show', event, class: "card-link" %>
       <% if event.user == current_user%>
@@ -18,6 +18,8 @@
   <% end %>
   </div>
 </div>
+
+<%== pagy_bootstrap_nav(@pagy) %>
 
 
 
