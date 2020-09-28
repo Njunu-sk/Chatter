@@ -1,26 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<div class="card-deck">
- <% @songs.each do |song|%>
-  <div class="card">
-  <% if song.image.attached? %>
-    <%= link_to  song do %>
-      <%= image_tag song.image, class: "card-img-top" %>
-    <% end %>
-  <% end %>
-    <div class="card-body">
-      <h5 class="card-title"><%= song.title %><h5>
-    </div>
-    <div class="card-footer">
-      <%= link_to 'Show', song, class: "card-link" %>
-      <% if song.user == current_user%>
-      <%= link_to 'Edit', edit_song_path(song), class: "card-link" %>
-      <%= link_to 'Destroy', song,method: :delete, data: { confirm: "Are you sure"}, class: "card-link" %>
+
+<div class="row row-cols-1 row-cols-md-2">
+<% @songs.each do |song| %>
+  <div class="col mb-4">
+    <div class="card">
+    <% if song.image.attached? %>
+      <%= link_to song do %>
+        <%= image_tag song.image, class: "card-img-top" %>
       <% end %>
+    <% end %>
+  
+      <div class="card-body">
+        <h5 class="card-title"><%= song.title %></h5>
+      </div>
+      <div class="card-footer">
+        <%= link_to 'show', song, class: "card-link" %>
+        <% if song.user == current_user %>
+        <%= link_to 'Edit', edit_song_path(song), class: "card-link" %>
+        <%= link_to 'Destroy', song,method: :delete, data: { confirm: "Are you sure"}, class: "card-link" %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <% end %>
+  <% end %>  
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
