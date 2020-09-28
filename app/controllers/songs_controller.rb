@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    @pagy, @songs = pagy(Song.limit(10))
   end
 
   def search

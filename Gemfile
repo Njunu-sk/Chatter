@@ -60,3 +60,4 @@ gem "stimulus_reflex", "~> 3.2"
 gem 'font-awesome-sass', '~> 5.13.0'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'pagy'

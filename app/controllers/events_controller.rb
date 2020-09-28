@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @pagy, @events = pagy(Event.limit(10))
   end
 
   # GET /events/1
